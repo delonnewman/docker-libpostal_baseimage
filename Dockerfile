@@ -13,7 +13,7 @@ WORKDIR /code/libpostal
 # install libpostal
 RUN ./bootstrap.sh && \
     ./configure --datadir=/usr/share/libpostal && \
-    make && make check && DESTDIR=/libpostal make install && \
+    make && DESTDIR=/libpostal make install && \
     ldconfig
 
 # main image
