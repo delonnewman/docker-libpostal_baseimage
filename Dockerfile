@@ -1,5 +1,5 @@
 # builder image
-FROM pelias/baseimage as builder
+FROM delonnewman/baseimage as builder
 
 # libpostal apt dependencies
 # note: this is done in one command in order to keep down the size of intermediate containers
@@ -17,7 +17,7 @@ RUN ./bootstrap.sh && \
     ldconfig
 
 # main image
-FROM pelias/baseimage
+FROM delonnewman/baseimage
 
 COPY --from=builder /usr/share/libpostal /usr/share/libpostal
 COPY --from=builder /libpostal /
